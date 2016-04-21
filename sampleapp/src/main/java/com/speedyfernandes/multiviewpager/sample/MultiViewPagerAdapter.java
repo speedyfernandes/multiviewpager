@@ -1,13 +1,10 @@
 package com.speedyfernandes.multiviewpager.sample;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.Random;
 
 /**
  * Created by Jerry on 21/04/16.
@@ -25,9 +22,6 @@ public class MultiViewPagerAdapter extends PagerAdapter {
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.page_middle, collection, false);
-        Random rnd = new Random();
-        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-        layout.setBackgroundColor(color);
         collection.addView(layout);
         return layout;
     }
