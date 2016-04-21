@@ -1,6 +1,7 @@
 package com.speedyfernandes.multiviewpager;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Point;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -12,29 +13,48 @@ import android.widget.FrameLayout;
  */
 public class MultiViewPagerContainer extends FrameLayout implements ViewPager.OnPageChangeListener {
 
-    boolean mNeedsRedraw = false;
+    private static final int LEFT = 0;
+    private static final int CENTER = 1;
+    private static final int RIGHT = 2;
+    private static final float ONE_THIRD = 0.333f;
+
     private ViewPager mPager;
     private Point mCenter = new Point();
     private Point mInitialTouch = new Point();
+    private boolean mNeedsRedraw = false;
+    private float mPageWidth = ONE_THIRD;
+    private int mPagerPosition = CENTER;
 
     public MultiViewPagerContainer(Context context) {
         super(context);
-        init();
+        init(context, null);
     }
 
     public MultiViewPagerContainer(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context, attrs);
     }
 
     public MultiViewPagerContainer(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init();
+        init(context, attrs);
     }
 
-    private void init() {
+    private void init(Context context, AttributeSet attrs) {
         //Disable clipping of children so non-selected pages are visible
         setClipChildren(false);
+
+        TypedArray a = context.getTheme().obtainStyledAttributes(
+                attrs,
+                R.styleable.MultiViewPagerContainer,
+                0, 0);
+
+        try {
+            mPagerPosition = a.getInt(R.styleable.MultiViewPagerContainer_pagerPosition, CENTER);
+            mPageWidth = a.getFloat(R.styleable.MultiViewPagerContainer_pageWidth, ONE_THIRD);
+        } finally {
+            a.recycle();
+        }
     }
 
     @Override
@@ -54,16 +74,23 @@ public class MultiViewPagerContainer extends FrameLayout implements ViewPager.On
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        mCenter.x = w * (1 / 3);
-        mCenter.y = h / 2;
-
         int viewWidth = getWidth();
         int viewHeight = getHeight();
-        int pagerWidth = (int) ((float) viewWidth * 0.333f);
+        int pagerWidth = (int) ((float) viewWidth * mPageWidth);
         int pagerHeight = viewHeight;
 
         mPager.setLayoutParams(new LayoutParams(pagerWidth, pagerHeight));
-        mPager.setX(viewWidth / 2 - pagerWidth / 2);
+
+        if (mPagerPosition == LEFT) {
+            mPager.setX(0);
+        } else if (mPagerPosition == CENTER) {
+            mPager.setX(viewWidth / 2 - pagerWidth / 2);
+        } else if (mPagerPosition == RIGHT) {
+            mPager.setX(viewWidth - pagerWidth);
+        }
+
+        mCenter.x = (int) mPager.getPivotX();
+        mCenter.y = (int) mPager.getPivotY();
     }
 
     @Override
