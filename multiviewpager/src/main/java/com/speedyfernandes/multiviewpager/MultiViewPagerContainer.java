@@ -54,12 +54,12 @@ public class MultiViewPagerContainer extends FrameLayout implements ViewPager.On
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        mCenter.x = w * (1 / 5);
+        mCenter.x = w * (1 / 3);
         mCenter.y = h / 2;
 
         int viewWidth = getWidth();
         int viewHeight = getHeight();
-        int pagerWidth = viewWidth / 5;
+        int pagerWidth = (int) ((float) viewWidth * 0.333f);
         int pagerHeight = viewHeight;
 
         mPager.setLayoutParams(new LayoutParams(pagerWidth, pagerHeight));

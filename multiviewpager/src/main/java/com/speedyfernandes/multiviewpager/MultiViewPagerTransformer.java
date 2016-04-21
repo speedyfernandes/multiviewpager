@@ -7,7 +7,7 @@ import android.view.View;
  * Created by Jerry on 21/04/16.
  */
 public class MultiViewPagerTransformer implements ViewPager.PageTransformer {
-    private static final float MIN_SCALE = 0.85f;
+    private static final float MIN_SCALE = 0.75f;
     private static final float MIN_ALPHA = 0.5f;
 
     public void transformPage(View view, float position) {

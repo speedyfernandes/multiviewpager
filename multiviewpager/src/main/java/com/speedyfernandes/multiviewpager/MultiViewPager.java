@@ -3,9 +3,6 @@ package com.speedyfernandes.multiviewpager;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
-
-import java.util.Locale;
 
 /**
  * Created by Jerry on 21/04/16.
@@ -35,10 +32,6 @@ public class MultiViewPager extends ViewPager {
         if (changed && (width != lastWidth || height != lastHeight)) {
             lastWidth = width;
             lastHeight = height;
-
-            Log.d(TAG, String.format(Locale.getDefault(),
-                    "Width %d - Page Width %.2f",
-                    lastWidth, getAdapter().getPageWidth(1)));
         }
     }
 }

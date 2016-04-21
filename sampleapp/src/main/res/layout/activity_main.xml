@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.speedyfernandes.multiviewpager.MultiViewPagerContainer
-        android:id="@+id/pager_container"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <com.speedyfernandes.multiviewpager.MultiViewPager
-            android:id="@+id/multiViewPager"
+            android:id="@+id/multiViewPager1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal" />
 
     </com.speedyfernandes.multiviewpager.MultiViewPagerContainer>
 
-</RelativeLayout>
+    <com.speedyfernandes.multiviewpager.MultiViewPagerContainer
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.speedyfernandes.multiviewpager.MultiViewPager
+            android:id="@+id/multiViewPager2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+    </com.speedyfernandes.multiviewpager.MultiViewPagerContainer>
+
+    <com.speedyfernandes.multiviewpager.MultiViewPagerContainer
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.speedyfernandes.multiviewpager.MultiViewPager
+            android:id="@+id/multiViewPager3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+    </com.speedyfernandes.multiviewpager.MultiViewPagerContainer>
+
+</LinearLayout>
