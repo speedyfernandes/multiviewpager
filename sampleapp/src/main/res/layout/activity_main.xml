@@ -23,7 +23,8 @@
     <com.speedyfernandes.multiviewpager.MultiViewPagerContainer
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        custom:pageWidth="0.20">
 
         <com.speedyfernandes.multiviewpager.MultiViewPager
             android:id="@+id/multiViewPager2"
