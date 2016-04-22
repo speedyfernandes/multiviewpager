@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         final MultiViewPager viewPager2 = (MultiViewPager) findViewById(R.id.multiViewPager2);
         viewPager2.setAdapter(new AnnotationViewAdapter(this));
-        viewPager2.setOffscreenPageLimit(9);
+        viewPager2.setOffscreenPageLimit(5);
         viewPager2.setPageTransformer(false, new AnnotationPagerTransformer());
         viewPager2.setClipChildren(false);
     }
