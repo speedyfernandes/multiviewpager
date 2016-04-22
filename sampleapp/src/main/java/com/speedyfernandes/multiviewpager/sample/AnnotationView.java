@@ -44,7 +44,7 @@ public class AnnotationView extends RelativeLayout {
 
     public void setTint(float amount) {
         int mixColor = mixTwoColors(ContextCompat.getColor(getContext(), R.color.colorAccent),
-                ContextCompat.getColor(getContext(), R.color.colorPrimary), amount);
+                ContextCompat.getColor(getContext(), R.color.colorPrimaryDark), amount);
         Drawable background = ContextCompat.getDrawable(getContext(),
                 R.drawable.category_picker_circle_grey);
         background.setColorFilter(mixColor, PorterDuff.Mode.SRC_IN);

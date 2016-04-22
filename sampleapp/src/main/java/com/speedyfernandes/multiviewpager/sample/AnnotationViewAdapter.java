@@ -2,16 +2,13 @@ package com.speedyfernandes.multiviewpager.sample;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 /**
  * Created by Jerry on 22/04/16.
  */
-public class AnnotationCategoryAdapter extends PagerAdapter {
+public class AnnotationViewAdapter extends PagerAdapter {
 
     private Context mContext;
     private String[] titles = {"General",
@@ -27,7 +24,7 @@ public class AnnotationCategoryAdapter extends PagerAdapter {
             R.drawable.category_carousel_icon_cleaning,
             R.drawable.category_carousel_icon_visitor};
 
-    public AnnotationCategoryAdapter(Context context) {
+    public AnnotationViewAdapter(Context context) {
         mContext = context;
     }
 
@@ -39,18 +36,6 @@ public class AnnotationCategoryAdapter extends PagerAdapter {
         page.setImage(images[position]);
         collection.addView(page);
         return page;
-        /*LayoutInflater inflater = LayoutInflater.from(mContext);
-
-        ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.page_annotation, collection, false);
-
-        TextView title = (TextView) layout.findViewById(R.id.annotation_category_title);
-        title.setText(titles[position]);
-
-        ImageView image = (ImageView) layout.findViewById(R.id.annotation_category_image);
-        image.setImageResource(images[position]);
-
-        collection.addView(layout);
-        return layout;*/
     }
 
     @Override

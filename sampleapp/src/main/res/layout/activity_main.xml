@@ -9,8 +9,8 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        custom:pagerPosition="left"
-        custom:pageWidth="0.80">
+        custom:pagerPosition="center"
+        custom:pageWidth="0.56">
 
         <com.speedyfernandes.multiviewpager.MultiViewPager
             android:id="@+id/multiViewPager1"
@@ -28,21 +28,6 @@
 
         <com.speedyfernandes.multiviewpager.MultiViewPager
             android:id="@+id/multiViewPager2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
-
-    </com.speedyfernandes.multiviewpager.MultiViewPagerContainer>
-
-    <com.speedyfernandes.multiviewpager.MultiViewPagerContainer
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        custom:pagerPosition="right"
-        custom:pageWidth="1.0">
-
-        <com.speedyfernandes.multiviewpager.MultiViewPager
-            android:id="@+id/multiViewPager3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal" />
